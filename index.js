@@ -28,7 +28,11 @@ async function createCourse() {
 }
 
 async function getCourses() {
-  const courses = await Course.find({ author: "Mosh", isPublished: true })
+  // eq ne gt gte lt lte in nin
+
+  const courses = await Course
+    // .find({ author: "Mosh", isPublished: true })
+    .find({ price: 10 }) // Find courses that are priced 10 dollars
     .limit(10)
     .sort({ name: 1 })
     .select({ name: 1, tags: 1 });
