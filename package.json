@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/TimmyBen/mongo-demo#readme",
   "dependencies": {
-    "mongoose": "^5.0.1"
+    "mongoose": "^5.13.14"
   }
 }

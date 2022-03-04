@@ -40,4 +40,23 @@ async function getCourses() {
   console.log(courses);
 }
 
-getCourses();
+async function updateCourse(id) {
+  // Approach: Query First         OR Update First
+  // findById()                    OR Update directly
+  // Modify its properties         Optionally: Get the updated document
+  // save()
+  const course = await Course.findById();
+  if (!course) return;
+
+  // course.isPublished = true;
+  // course.author = "Another Author";
+  course.set({
+    isPublished: true,
+    author: "Another author",
+  });
+
+  const result = await course.save();
+  console.log(result);
+}
+
+updateCourse("6221e9c21f1d600422cde622");
