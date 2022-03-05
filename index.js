@@ -40,22 +40,11 @@ async function getCourses() {
   console.log(courses);
 }
 
-async function updateCourse(id) {
-  // Approach: Query First         OR Update First
-  // findById()                    OR Update directly
-  // Modify its properties         Optionally: Get the updated document
-  // save()
-  const course = await Course.findByIdAndUpdate(
-    id,
-    {
-      $set: {
-        author: "Jason",
-        isPublished: false,
-      },
-    },
-    { new: true }
-  );
-  console.log(course);
+async function removeCourse(id) {
+  const result = await Course.deleteOne({ _id: id });
+  // const result = await Course.deleteMany({ _id: id });
+  // const course = await Course.findByIdAndRemove(id);
+  console.log(result);
 }
 
-updateCourse("6221e9c21f1d600422cde622");
+removeCourse("6221e9c21f1d600422cde622");
