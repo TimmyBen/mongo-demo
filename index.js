@@ -25,6 +25,8 @@ const courseSchema = new mongoose.Schema({
     required: function () {
       return this.isPublished;
     },
+    min: 10,
+    max: 200,
   },
 });
 
