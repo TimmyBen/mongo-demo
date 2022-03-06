@@ -24,9 +24,8 @@ async function createCourse() {
   });
 
   try {
-    await course.validate();
-    // const result = await course.save();
-    // console.log(result);
+    const result = await course.save();
+    console.log(result);
   } catch (ex) {
     console.log(ex.message);
   }
